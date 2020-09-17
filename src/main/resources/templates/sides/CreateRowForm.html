@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/allBooks.css}" rel="stylesheet" />
+    <link th:href="@{/navBar.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0;">
+
+
+<div class="sidenav">
+    <h1>Table Name</h1>
+    <label th:object="${db}" th:text="*{database}"></label>
+
+    <form action="#" th:action="@{/all}" method="GET">
+        <input type="submit" id="goToAllButton" value="Change database" class="navButton">
+    </form>
+
+    <form action="#" th:action="@{/dbBooks}" method="GET">
+        <th ><input type="submit" id="goBackButton" value="Go back to table" class="navButton"></th>
+    </form>
+
+    <input form="mainForm" type="submit" id="submitButton" th:value="Save" class="navButton" >
+    <input  form="mainForm" type="reset" id="resetButton" name="reset" th:value="Reset" class="navButton" />
+
+    <div class="bottom">
+        <h1>You are logged in as</h1>
+        <label th:text="${name}"></label>
+        <form action="#" th:action="@{/logout}" method="GET">
+            <th ><input type="submit" id="logout" value="Logout" class="navButton"></th>
+        </form>
+    </div>
+
+</div>
+
+
+<div class="main">
+    <form id="mainForm" action="#" th:action="@{/save}" th:object="${creationList}"
+          method="POST">
+            <input type="hidden" th:name="mode" th:value="${mode}">
+            <table>
+                <thead>
+                <tr>
+<!--                    <th><input type="submit" id="submitButton" th:value="Save" ></th>-->
+<!--                    <th><input type="reset" id="resetButton" name="reset" th:value="Reset" /></th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="row : ${tableHeader}">
+                    <th th:each="value, itemStat : ${row}"><span th:text="${value}"> Title </span></th>
+                </tr>
+
+                <tr>
+                    <td><label>
+                        <input  th:field="*{values[__0__]}"   readonly/>
+                    </label></td>
+
+                    <td th:if="${itemStat.index!=0}" th:each="item, itemStat : *{values}"><label>
+                        <input  th:field="*{values[__${itemStat.index}__]}" placeholder="Put new Value" />
+                    </label></td>
+                </tr>
+                </tbody>
+            </table>
+    </form>
+</div>
+</body>
+</html>

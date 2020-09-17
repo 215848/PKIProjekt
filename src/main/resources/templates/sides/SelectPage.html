@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/allBooks.css}" rel="stylesheet" />
+    <link th:href="@{/navBar.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0;">
+
+
+<div class="sidenav">
+    <h1>Table Name</h1>
+    <label th:object="${db}" th:text="*{database}"></label>
+    <div class="bottom">
+        <h1>You are logged in as</h1>
+        <label th:text="${name}"></label>
+        <form action="#" th:action="@{/logout}" method="GET">
+            <th ><input type="submit" id="logout" value="Logout" class="navButton"></th>
+        </form>
+    </div>
+
+
+</div>
+
+
+<div class="main">
+    <form action="#" th:action="@{/dbBooks}" th:object="${db}" method="get" >
+
+
+        <h1>Pick a table</h1>
+        <div class="select" >
+            <select th:field="*{database}" >
+                <option th:each="table : ${tables}" th:value="${table}" th:text="${table}" ></option>
+            </select>
+        </div>
+
+        <input type="submit" id="submitButton"  value="Confirm table">
+
+    </form>
+
+
+
+</div>
+</body>
+</html>

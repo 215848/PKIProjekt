@@ -1,0 +1,126 @@
+
+h1 {
+    text-align: center;
+    color: white;
+    margin: 0 0 0.25em;
+}
+/* Reset Select */
+select {
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #111;
+    background-image: none;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+    display: none;
+}
+/* Custom Select */
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #111;
+    overflow: hidden;
+    border-radius: .25em;
+}
+select {
+    text-align-last:center;
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+}
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #292929;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+    color: #f39c12;
+}
+
+input{
+    text-align: center;
+    /*position: relative;*/
+    /*display: flex;*/
+    width: 24em;
+    height: 3em;
+    /*line-height: 3;*/
+    background: #111;
+    /*overflow: hidden;*/
+    border-radius: .25em;
+    color: white;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+}
+
+input:hover{
+    color:#f39c12;
+}
+
+table{
+    text-align: center;
+    /*position: relative;*/
+    /*display: flex;*/
+    width: 48em;
+    height: 3em;
+    /*line-height: 3;*/
+    background: transparent;
+    /*overflow: hidden;*/
+    border-radius: .25em;
+    color: white;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    margin: 0 auto;
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: #FFF !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #111 inset !important;
+
+}
+
+th{
+    background: #111111;
+    padding:  10px 0;
+    margin: 2px;
+    width: 24em;
+
+}
+
+td{
+    background: transparent;
+    padding:  10px 0;
+    width: 24em;
+    text-align: center;
+}

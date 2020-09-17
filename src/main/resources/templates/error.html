@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/allBooks.css}" rel="stylesheet" />
+    <link th:href="@{/navBar.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0;">
+
+
+<div class="sidenav">
+    <form action="#" th:action="@{/all}" method="GET">
+        <input type="submit" id="goToAllButton" value="Change database" class="navButton">
+    </form>
+
+    <form action="#" th:action="@{/dbBooks}" th:object="${db}" method="get" >
+        <input type="submit" id="submitButton"  value="Go back to table" class="navButton">
+    </form>
+
+    <form action="#" th:action="@{/customQueryForm}" method="GET">
+        <th ><input type="submit" id="customQueryForm" value="Create custom query" class="navButton"></th>
+    </form>
+</div>
+
+
+<div class="main">
+    <h1>There was an error</h1>
+    <table>
+        <tr>
+            <td>Exception:</td>
+            <td th:text="${message}"/>
+        </tr>
+    </table>
+
+
+</div>
+</body>
+</html>

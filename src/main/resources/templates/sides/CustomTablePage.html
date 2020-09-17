@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link th:href="@{/allBooks.css}" rel="stylesheet" />
+    <link th:href="@{/navBar.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="margin: 0;">
+
+
+<div class="sidenav">
+    <h1>Table Name</h1>
+    <label th:object="${db}" th:text="*{database}"></label>
+
+    <form action="#" th:action="@{/all}" method="GET">
+        <input type="submit" id="goToAllButton" value="Change database" class="navButton">
+    </form>
+
+    <form action="#" th:action="@{/dbBooks}" method="GET">
+        <th ><input type="submit" id="goBackButton" value="Go back to table" class="navButton"></th>
+    </form>
+
+    <form action="#" th:action="@{/customQueryForm}" method="GET">
+        <th ><input type="submit" id="customQueryForm" value="Create custom query" class="navButton"></th>
+    </form>
+
+    <div class="bottom">
+        <h1>You are logged in as</h1>
+        <label th:text="${name}"></label>
+        <form action="#" th:action="@{/logout}" method="GET">
+            <th ><input type="submit" id="logout" value="Logout" class="navButton"></th>
+        </form>
+    </div>
+
+
+</div>
+
+
+<div class="mainTable">
+    <table>
+        <tbody>
+        <!--        <tr th:if="${books.empty}">-->
+        <!--            <td colspan="2"> No Books Available </td>-->
+        <!--        </tr>-->
+        <tr >
+            <th th:each="value : ${tableHeader}"><span th:text="${value}"> Title </span></th>
+        </tr>
+        <tr th:each="row, itemStat : ${tableBody}">
+            <td th:each="value : ${row}"><span th:text="${value}"> Title </span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

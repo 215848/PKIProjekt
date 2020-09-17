@@ -1,0 +1,93 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.sidenav {
+    height: 100%;
+    width: 400px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.sidenav label{
+    padding: 6px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+/*.sidenav a:hover {*/
+/*    color: #f1f1f1;*/
+/*}*/
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 200px; /* Same as the width of the sidenav */
+    background: linear-gradient(90deg,#292929,#111);
+
+
+}
+.mainTable{
+    height: 100%;
+    margin-left: 400px; /* Same as the width of the sidenav */
+    background: linear-gradient(90deg,#292929,#111);
+    overflow: auto;
+}
+
+.navButton{
+    background: #1538d1;
+    width: 360px;
+    align-self: center;
+    margin: 20px;
+}
+
+.editButton{
+    background: #3deb34;
+    width: 80px;
+    align-self: center;
+    margin: 5px;
+}
+
+.deleteButton{
+    background: red;
+    width: 80px;
+    align-self: center;
+    margin: 5px;
+}
+
+.navButton:hover{
+    background: #0126c8;
+}
+
+.bottom {
+    position:absolute;
+    bottom:0;
+    left:0;
+    text-align: center;
+    margin-bottom: 160px;
+    width: 100%;
+}
+
+
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
